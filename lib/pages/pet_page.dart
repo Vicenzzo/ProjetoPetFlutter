@@ -21,7 +21,7 @@ class ProductsPage extends StatelessWidget {
     final ProductList pets = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 110, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 110, 255),
         title: const Text('Gerenciar Pets'),
         actions: [
           IconButton(

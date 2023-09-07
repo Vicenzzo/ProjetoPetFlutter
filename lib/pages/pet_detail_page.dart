@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/pet.dart';
 
+//Mostra o pet com detalhes de cada produto selecionado
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //Referencia o argumento que foi passado dentro da rota
     final Product product =
         ModalRoute.of(context)!.settings.arguments as Product;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 110, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 110, 255),
         title: Text(product.name),
       ),
       body: SingleChildScrollView(

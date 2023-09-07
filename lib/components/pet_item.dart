@@ -5,6 +5,7 @@ import 'package:shop/models/pet.dart';
 import 'package:shop/models/pet_list.dart';
 import 'package:shop/utils/app_routes.dart';
 
+//componte para mostra a lista dos produtos pra o gerenciamento
 class ProductItem extends StatelessWidget {
   final Product product;
 

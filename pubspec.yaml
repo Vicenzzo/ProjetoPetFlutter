@@ -29,7 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #Adicona a dependencia do provider
   provider: ^6.0.3
+  #Adiciona a dependencia da inicialização
   intl: ^0.17.0
   http: ^0.13.5
 

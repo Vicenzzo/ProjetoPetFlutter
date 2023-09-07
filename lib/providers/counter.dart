@@ -11,7 +11,7 @@ class CounterState {
     return old._value != _value;
   }
 }
-
+//provider - class para gerencinar a mudança de estado, de alguns componentes quando necessario
 class CounterProvider extends InheritedWidget {
   final CounterState state = CounterState();
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop/utils/constants.dart';
 
+//Criação da classe de entidade
 class Product with ChangeNotifier {
   final String id;
   final String name;
@@ -11,7 +12,7 @@ class Product with ChangeNotifier {
   final double age;
   final String imageUrl;
   bool isFavorite;
-
+  //Construtor passandod os atributos como parametro
   Product({
     required this.id,
     required this.name,
@@ -20,7 +21,7 @@ class Product with ChangeNotifier {
     required this.imageUrl,
     this.isFavorite = false,
   });
-
+  //Metodo que alterna o valor do favorito
   void _toggleFavorite() {
     isFavorite = !isFavorite;
     notifyListeners();

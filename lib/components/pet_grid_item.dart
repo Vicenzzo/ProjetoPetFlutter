@@ -10,12 +10,12 @@ class ProductGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
-
+    //Envolvendo no ClipRRect mostra os produto arendondando as pontas
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         footer: GridTileBar(
-          backgroundColor: Color.fromARGB(221, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(221, 0, 0, 0),
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               onPressed: () {

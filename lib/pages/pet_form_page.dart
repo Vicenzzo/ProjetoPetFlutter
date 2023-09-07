@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -113,8 +113,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         backgroundColor: Color.fromARGB(255, 0, 110, 255),
-        title: const Text('Formulário de Produto'),
+        backgroundColor: const Color.fromARGB(255, 0, 110, 255),
+        title: const Text('Formulário de Pets'),
         actions: [
           IconButton(
             onPressed: _submitForm,
@@ -170,7 +170,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                         final age = double.tryParse(ageString) ?? -1;
 
                         if (age <= 0) {
-                          return 'Informe um preço válido.';
+                          return 'Informe uma idade válida.';
                         }
 
                         return null;

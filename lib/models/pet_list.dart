@@ -7,6 +7,8 @@ import 'package:shop/models/pet.dart';
 import 'package:shop/utils/constants.dart';
 
 //Desenvolvimento do CRUD
+
+
 class ProductList with ChangeNotifier {
   final List<Product> _items = [];
 
@@ -42,7 +44,7 @@ class ProductList with ChangeNotifier {
     notifyListeners();
   }
 
-//Mostra todos os produtos salvos no banco de dados
+//Cria a estrutura da notificação, para notificar as outras partes interessadas
   Future<void> saveProduct(Map<String, Object> data) {
     bool hasId = data['id'] != null;
 
@@ -75,7 +77,7 @@ class ProductList with ChangeNotifier {
         },
       ),
     );
-
+//Cria a estrutura da notificação, para notificar as outras partes interessadas
     final id = jsonDecode(response.body)['name'];
     _items.add(Product(
       id: id,
@@ -88,7 +90,8 @@ class ProductList with ChangeNotifier {
     notifyListeners();
   }
 
-  //Atualização para cada PET, e atualizando no banco de dados
+  //Atualização para cada PET, e atualizando no banco de dados e 
+  //para notifica a alteração para as outras partes interessadas
   Future<void> updateProduct(Product product) async {
     int index = _items.indexWhere((p) => p.id == product.id);
 

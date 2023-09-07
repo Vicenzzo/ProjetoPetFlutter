@@ -3,11 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/components/app_drawer.dart';
-import 'package:shop/components/badge.dart' as ba;
 import 'package:shop/components/pet_grid.dart';
+import 'package:shop/models/pet.dart';
 import 'package:shop/models/pet_list.dart';
 import 'package:shop/utils/app_routes.dart';
 
+//pagina que mostra todos os cards cadastrados no sistema
 enum FilterOptions {
   favorite,
   all,
@@ -32,6 +33,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
       listen: false,
     ).loadProducts().then((value) {
       setState(() {
+        _showFavoriteOnly = false;
         _isLoading = false;
       });
     });
@@ -41,7 +43,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 0, 110, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 110, 255),
         title: const Text('Meus Pets'),
         actions: [
           PopupMenuButton(

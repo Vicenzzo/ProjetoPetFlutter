@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      //Aqui adiciona a lista de Pets, sempre que ouver uma mudança
       providers: [
         ChangeNotifierProvider(
           create: (_) => ProductList(),
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.pets: (ctx) => const ProductsPage(),
           AppRoutes.petForm: (ctx) => const ProductFormPage(),
         },
+        //Tira o banner que fica inicial
         debugShowCheckedModeBanner: false,
       ),
     );
