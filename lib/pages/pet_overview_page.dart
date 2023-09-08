@@ -14,21 +14,21 @@ enum FilterOptions {
   all,
 }
 
-class ProductsOverviewPage extends StatefulWidget {
-  const ProductsOverviewPage({Key? key}) : super(key: key);
+class PetsOverviewPage extends StatefulWidget {
+  const PetsOverviewPage({Key? key}) : super(key: key);
 
   @override
-  State<ProductsOverviewPage> createState() => _ProductsOverviewPageState();
+  State<PetsOverviewPage> createState() => _ProductsOverviewPageState();
 }
 
-class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
+class _ProductsOverviewPageState extends State<PetsOverviewPage> {
   bool _showFavoriteOnly = false;
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    Provider.of<ProductList>(
+    Provider.of<PetList>(
       context,
       listen: false,
     ).loadProducts().then((value) {
@@ -72,7 +72,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ProductGrid(_showFavoriteOnly),
+          : PetGrid(_showFavoriteOnly),
       drawer: const AppDrawer(),
     );
   }

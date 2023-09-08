@@ -8,12 +8,11 @@ import 'package:shop/utils/constants.dart';
 
 //Desenvolvimento do CRUD
 
+class PetList with ChangeNotifier {
+  final List<Pet> _items = [];
 
-class ProductList with ChangeNotifier {
-  final List<Product> _items = [];
-
-  List<Product> get items => [..._items];
-  List<Product> get favoriteItems =>
+  List<Pet> get items => [..._items];
+  List<Pet> get favoriteItems =>
       _items.where((prod) => prod.isFavorite).toList();
 
   int get itemsCount {
@@ -31,7 +30,7 @@ class ProductList with ChangeNotifier {
     Map<String, dynamic> data = jsonDecode(response.body);
     data.forEach((productId, productData) {
       _items.add(
-        Product(
+        Pet(
           id: productId,
           name: productData['name'],
           description: productData['description'],
@@ -48,7 +47,7 @@ class ProductList with ChangeNotifier {
   Future<void> saveProduct(Map<String, Object> data) {
     bool hasId = data['id'] != null;
 
-    final product = Product(
+    final product = Pet(
       id: hasId ? data['id'] as String : Random().nextDouble().toString(),
       name: data['name'] as String,
       description: data['description'] as String,
@@ -64,7 +63,7 @@ class ProductList with ChangeNotifier {
   }
 
 //Adiciona um PET ao banco de dados
-  Future<void> addProduct(Product product) async {
+  Future<void> addProduct(Pet product) async {
     final response = await http.post(
       Uri.parse('${Constants.productBaseUrl}.json'),
       body: jsonEncode(
@@ -79,7 +78,7 @@ class ProductList with ChangeNotifier {
     );
 //Cria a estrutura da notificação, para notificar as outras partes interessadas
     final id = jsonDecode(response.body)['name'];
-    _items.add(Product(
+    _items.add(Pet(
       id: id,
       name: product.name,
       description: product.description,
@@ -90,9 +89,9 @@ class ProductList with ChangeNotifier {
     notifyListeners();
   }
 
-  //Atualização para cada PET, e atualizando no banco de dados e 
+  //Atualização para cada PET, e atualizando no banco de dados e
   //para notifica a alteração para as outras partes interessadas
-  Future<void> updateProduct(Product product) async {
+  Future<void> updateProduct(Pet product) async {
     int index = _items.indexWhere((p) => p.id == product.id);
 
     if (index >= 0) {
@@ -114,7 +113,7 @@ class ProductList with ChangeNotifier {
   }
 
 //Remove um PET que esta inserido no banco de dados
-  Future<void> removeProduct(Product product) async {
+  Future<void> removeProduct(Pet product) async {
     int index = _items.indexWhere((p) => p.id == product.id);
 
     if (index >= 0) {
@@ -130,7 +129,7 @@ class ProductList with ChangeNotifier {
         _items.insert(index, product);
         notifyListeners();
         throw HttpException(
-          msg: 'Não foi possível excluir o produto.',
+          msg: 'Não foi possível excluir o Pet.',
           statusCode: response.statusCode,
         );
       }

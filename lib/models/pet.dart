@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:shop/utils/constants.dart';
 
 //Criação da classe de entidade
-class Product with ChangeNotifier {
+class Pet with ChangeNotifier {
   final String id;
   final String name;
   final String description;
@@ -13,7 +13,7 @@ class Product with ChangeNotifier {
   final String imageUrl;
   bool isFavorite;
   //Construtor passandod os atributos como parametro
-  Product({
+  Pet({
     required this.id,
     required this.name,
     required this.description,

@@ -6,10 +6,10 @@ import 'package:shop/models/pet_list.dart';
 import 'package:shop/utils/app_routes.dart';
 
 //componte para mostra a lista dos produtos pra o gerenciamento
-class ProductItem extends StatelessWidget {
-  final Product product;
+class PetItem extends StatelessWidget {
+  final Pet product;
 
-  const ProductItem(
+  const PetItem(
     this.product, {
     Key? key,
   }) : super(key: key);
@@ -61,7 +61,7 @@ class ProductItem extends StatelessWidget {
                 ).then((value) async {
                   if (value ?? false) {
                     try {
-                      await Provider.of<ProductList>(
+                      await Provider.of<PetList>(
                         context,
                         listen: false,
                       ).removeProduct(product);

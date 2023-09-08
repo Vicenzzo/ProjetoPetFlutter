@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
       //Aqui adiciona a lista de Pets, sempre que ouver uma mudança
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ProductList(),
+          create: (_) => PetList(),
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Pet Toth',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: Colors.purple,
@@ -34,10 +34,10 @@ class MyApp extends StatelessWidget {
         ),
         // home: const ProductsOverviewPage(),
         routes: {
-          AppRoutes.home: (ctx) => const ProductsOverviewPage(),
-          AppRoutes.petDetail: (ctx) => const ProductDetailPage(),
-          AppRoutes.pets: (ctx) => const ProductsPage(),
-          AppRoutes.petForm: (ctx) => const ProductFormPage(),
+          AppRoutes.home: (ctx) => const PetsOverviewPage(),
+          AppRoutes.petDetail: (ctx) => const PetDetailPage(),
+          AppRoutes.pets: (ctx) => const PetsPage(),
+          AppRoutes.petForm: (ctx) => const PetFormPage(),
         },
         //Tira o banner que fica inicial
         debugShowCheckedModeBanner: false,

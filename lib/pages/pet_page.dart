@@ -6,11 +6,11 @@ import 'package:shop/models/pet_list.dart';
 import 'package:shop/utils/app_routes.dart';
 
 //Pagina para gerenciar todos os PETs
-class ProductsPage extends StatelessWidget {
-  const ProductsPage({Key? key}) : super(key: key);
+class PetsPage extends StatelessWidget {
+  const PetsPage({Key? key}) : super(key: key);
 
   Future<void> _refreshProducts(BuildContext context) {
-    return Provider.of<ProductList>(
+    return Provider.of<PetList>(
       context,
       listen: false,
     ).loadProducts();
@@ -18,7 +18,7 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductList pets = Provider.of(context);
+    final PetList pets = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 110, 255),
@@ -41,7 +41,7 @@ class ProductsPage extends StatelessWidget {
             itemCount: pets.itemsCount,
             itemBuilder: (ctx, i) => Column(
               children: [
-                ProductItem(pets.items[i]),
+                PetItem(pets.items[i]),
                 const Divider(),
               ],
             ),

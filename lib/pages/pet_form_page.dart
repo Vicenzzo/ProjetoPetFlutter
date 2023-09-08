@@ -5,14 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:shop/models/pet.dart';
 import 'package:shop/models/pet_list.dart';
 
-class ProductFormPage extends StatefulWidget {
-  const ProductFormPage({Key? key}) : super(key: key);
+class PetFormPage extends StatefulWidget {
+  const PetFormPage({Key? key}) : super(key: key);
 
   @override
-  State<ProductFormPage> createState() => _ProductFormPageState();
+  State<PetFormPage> createState() => _PetFormPageState();
 }
 
-class _ProductFormPageState extends State<ProductFormPage> {
+class _PetFormPageState extends State<PetFormPage> {
   final _ageFocus = FocusNode();
   final _descriptionFocus = FocusNode();
 
@@ -38,7 +38,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
       final arg = ModalRoute.of(context)?.settings.arguments;
 
       if (arg != null) {
-        final product = arg as Product;
+        final product = arg as Pet;
         _formData['id'] = product.id;
         _formData['name'] = product.name;
         _formData['age'] = product.age;
@@ -84,7 +84,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
     setState(() => _isLoading = true);
 
     try {
-      await Provider.of<ProductList>(
+      await Provider.of<PetList>(
         context,
         listen: false,
       ).saveProduct(_formData);

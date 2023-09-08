@@ -4,16 +4,16 @@ import 'package:shop/components/pet_grid_item.dart';
 import 'package:shop/models/pet.dart';
 import 'package:shop/models/pet_list.dart';
 //Aqui vamos desenvolver o componente de todos os cards para a vitrine de todos os pets
-class ProductGrid extends StatelessWidget {
+class PetGrid extends StatelessWidget {
   final bool showFavoriteOnly;
 
-  const ProductGrid(this.showFavoriteOnly, {Key? key}) : super(key: key);
+  const PetGrid(this.showFavoriteOnly, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductList>(context);
+    final provider = Provider.of<PetList>(context);
     //Condição ternaria para definir os pets que estão como favoritos ou não
-    final List<Product> loadedProducts =
+    final List<Pet> loadedProducts =
         showFavoriteOnly ? provider.favoriteItems : provider.items;
 
     return GridView.builder(
@@ -24,7 +24,7 @@ class ProductGrid extends StatelessWidget {
       itemCount: loadedProducts.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
         value: loadedProducts[i],
-        child: const ProductGridItem(),
+        child: const PetGridItem(),
       ),
                           //Utiliza quando temos os elementos pra rolagem
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
